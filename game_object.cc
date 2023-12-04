@@ -15,6 +15,6 @@ Texture_Obj::Texture_Obj(sf::Vector2f center, const std::string &texture)
 
 void Texture_Obj::render(sf::RenderWindow &window)
 {
-    shape.setPosition(center);
+    //shape.setPosition(center);
     window.draw(shape);
 }

@@ -1,5 +1,6 @@
 #include <SFML/Graphics.hpp>
 #include "menu_state.h"
+#include "includes.h"
 
 const size_t width{1024};
 const size_t height{768};

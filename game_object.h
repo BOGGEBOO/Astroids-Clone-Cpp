@@ -25,13 +25,12 @@ class Game_Object
 
 class Texture_Obj : public Game_Object
 {
-    private:
+    protected:
         sf::RectangleShape shape;
     public:
         Texture_Obj(sf::Vector2f center, const std::string &texture);
 
         void render(sf::RenderWindow &window) override;
-
 };
 
 #endif

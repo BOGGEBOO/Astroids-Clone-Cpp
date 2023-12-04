@@ -2,9 +2,13 @@
 #define GAME_STATE_H
 
 #include "state.h"
+#include "world.h"
 
 class Game_State : public State 
 {
+    private:
+        World world;
+
     public:
 
         Game_State();
@@ -13,11 +17,6 @@ class Game_State : public State
 
         void render(sf::RenderWindow &to) override;
 
-        sf::RectangleShape player;
-        
-        sf::Vector2f location{300, 300};
-        
-        float spin{};
 };
 
 #endif

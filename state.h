@@ -1,7 +1,7 @@
 #ifndef STATE_H
 #define STATE_H
 #include <SFML/Graphics.hpp>
-#include <memory>
+#include "includes.h"
 
 
 class State : public std::enable_shared_from_this<State>{
