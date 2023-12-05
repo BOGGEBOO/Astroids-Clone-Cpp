@@ -4,7 +4,7 @@
 #include "projectile.h"
 
 Player::Player(sf::Vector2f pos)
-: Texture_Obj(pos, "images/player.png"), speed(1.0f)
+: Texture_Obj(pos, "images/player.png"), speed(1.0f), rate{sf::milliseconds(1000)}
 {
     shape.setPosition(height / 2, width / 2);
 }
@@ -59,9 +59,13 @@ bool Player::update(sf::Time delta, World &world)
         shape.setPosition(shape.getPosition().x, 0);
     }
 
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)){
-        sf::Vector2f projpos{shape.getPosition().x + 10, shape.getPosition().y + 10};
+    
+    rate -= delta;
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && rate <= sf::Time{}){
+        
+        sf::Vector2f projpos{shape.getPosition().x, shape.getPosition().y};
         world.add(std::make_shared<Projectile>(projpos, shape.getRotation()));
+        rate = sf::milliseconds(300);
     }
 
     shape.move(center);

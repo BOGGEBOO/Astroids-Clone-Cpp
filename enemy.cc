@@ -1,5 +1,6 @@
 #include "enemy.h"
 #include "world.h"
+#include "projectile.h"
 #include <experimental/random>
 
 Enemy::Enemy(sf::Vector2f pos, const std::string &texture)
@@ -12,6 +13,10 @@ Asteroid::Asteroid(sf::Vector2f pos)
 {
     float random = std::experimental::randint(1, 100) * 3.600;
     shape.setRotation(random);
+
+    float rand_x = std::experimental::randint(1, int(width));
+    float rand_y = std::experimental::randint(1, int(height));
+    shape.setPosition(rand_x, rand_y);
 }
 
 bool Asteroid::update(sf::Time delta, World &world)
@@ -39,9 +44,12 @@ bool Asteroid::update(sf::Time delta, World &world)
 
     shape.move(center);
     
-    // for (auto &collision : world.collides_with(*this))
-    // {
-    //     return false;
-    // }
+    for (auto &collision : world.collides_with(*this))
+    {
+        if (dynamic_cast<Projectile *>(collision.get())) {
+            world.score += 10;
+            return false;
+        }
+    }
     return true;
 }

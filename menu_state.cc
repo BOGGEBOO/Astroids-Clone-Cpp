@@ -15,7 +15,6 @@ Menu_State::Menu_State(std::shared_ptr<State> resume)
     add("Exit", []() {return std::make_shared<Exit_State>(); });
 }
 
-
 void Menu_State::add(const std::string &text, Action action) 
 {
     entries.push_back( {sf::Text{text, font, 60}, 0.0f, action} );

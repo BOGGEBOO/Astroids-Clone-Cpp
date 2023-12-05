@@ -7,6 +7,7 @@ class Player : public Texture_Obj
 {
     private:
         float speed;
+        sf::Time rate;
 
     public:
         Player(sf::Vector2f pos);

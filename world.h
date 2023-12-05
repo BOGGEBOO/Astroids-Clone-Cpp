@@ -14,6 +14,10 @@ class World {
 
         std::vector<shared_ptr<Game_Object>> collides_with(Game_Object &me) const;
 
+        bool is_dead();
+
+        int score{0};
+        //sf::Text text;
     private:
         std::vector<shared_ptr<Game_Object>> objects;
 };
