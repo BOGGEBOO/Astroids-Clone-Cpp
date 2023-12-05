@@ -3,7 +3,7 @@
 void World::update(sf::Time delta){
     for (size_t i{0}; i < objects.size(); i++){
         if (!objects[i]->update(delta, *this)){
-            objects.erase(objects.begin() + 1);
+            objects.erase(objects.begin() + i);
             i--;
         }
     }
@@ -20,9 +20,12 @@ void World::add(shared_ptr<Game_Object> object){
 }
 
 static bool collides(Game_Object &a, Game_Object &b){
-    auto distance = a.center - b.center;
-    auto lengthSq = pow(distance.x, 2) + pow(distance.y, 2);
-    return lengthSq <= pow(a.radius + b.radius, 2);
+    // auto distance = a.center - b.center;
+    // auto lengthSq = pow(distance.x, 2) + pow(distance.y, 2);
+    // return lengthSq <= pow(a.radius + b.radius, 2);
+
+    bool coll = b.shape.getGlobalBounds().intersects(a.shape.getGlobalBounds());
+    return coll;
 }
 
 std::vector<shared_ptr<Game_Object>> World::collides_with(Game_Object &me) const{
@@ -31,8 +34,8 @@ std::vector<shared_ptr<Game_Object>> World::collides_with(Game_Object &me) const
     for (auto &o : objects){
         if (o.get() == &me)
             continue;
-    if (collides(*o, me))
-        result.push_back(o);
+        if (collides(*o, me))
+            result.push_back(o);
     }
     return result;
 }

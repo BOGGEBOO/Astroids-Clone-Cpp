@@ -1,6 +1,8 @@
 #include "game_state.h"
 #include "menu_state.h"
+#include "enemy.h"
 #include "player.h"
+#include <experimental/random>
 
 Game_State::Game_State(){
     world.add(std::make_shared<Player>(sf::Vector2f{width / 2.0f, height / 2.0f}));

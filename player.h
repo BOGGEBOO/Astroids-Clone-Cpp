@@ -12,7 +12,7 @@ class Player : public Texture_Obj
         Player(sf::Vector2f pos);
 
         bool update(sf::Time delta, World &world) override;
-        void render(sf::RenderWindow &to) override;
+        //void render(sf::RenderWindow &to) override;
 };
 
 

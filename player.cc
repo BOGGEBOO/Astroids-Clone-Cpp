@@ -1,5 +1,7 @@
 #include "player.h"
 #include "world.h"
+#include "enemy.h"
+#include "projectile.h"
 
 Player::Player(sf::Vector2f pos)
 : Texture_Obj(pos, "images/player.png"), speed(1.0f)
@@ -19,11 +21,13 @@ float find_rotation(){
 
 bool Player::update(sf::Time delta, World &world)
 {
-    sf::Clock clock;
+    //sf::Clock clock;
     float rotation = find_rotation();
 
     //auto delta = clock.restart();
     
+    
+
     float spin = rotation * 250.0f * delta.asSeconds();
     center.x = 250.0*-sin(shape.getRotation()*3.14159265/180)*delta.asSeconds() * speed;
     center.y = 250.0*cos(shape.getRotation()*3.14159265/180)*delta.asSeconds() * speed;
@@ -55,19 +59,25 @@ bool Player::update(sf::Time delta, World &world)
         shape.setPosition(shape.getPosition().x, 0);
     }
 
-    std::cout << shape.getPosition().x << std::endl;
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)){
+        sf::Vector2f projpos{shape.getPosition().x + 10, shape.getPosition().y + 10};
+        world.add(std::make_shared<Projectile>(projpos, shape.getRotation()));
+    }
+
     shape.move(center);
-    shape.rotate(spin);
-    
+    shape.rotate(spin); 
+
     for (auto &collision : world.collides_with(*this))
     {
-        return false;
+        if (dynamic_cast<Enemy *>(collision.get())) {
+            return false;
+        }
     }
  
     return true;
 }
 
-void Player::render(sf::RenderWindow &to)
-{
-    Texture_Obj::render(to);
-}
+// void Player::render(sf::RenderWindow &to)
+// {
+//     Texture_Obj::render(to);
+// }

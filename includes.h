@@ -5,6 +5,7 @@
 #include <cmath>
 #include <iostream>
 
+
 using std::shared_ptr;
 
 extern const size_t width;

@@ -6,7 +6,7 @@ Menu_State::Menu_State(std::shared_ptr<State> resume)
 : selected(0), enter_pressed(false), delay(sf::milliseconds(300))
 {
 
-    font.loadFromFile("font.ttf");
+    font.loadFromFile("fonts/ARCADE_N.TTF");
 
     if (resume){
         add("Resume", [resume]() {return resume;});
@@ -60,7 +60,7 @@ std::shared_ptr<State> Menu_State::update(sf::Time time)
             e.state -= diff;
             if ( e.state < 0.0f )
             {
-                e.state= 0.0f;
+                e.state = 0.0f;
             }
         }
     }

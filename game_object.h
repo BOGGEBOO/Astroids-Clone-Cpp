@@ -18,6 +18,8 @@ class Game_Object
 
         float radius;
 
+        sf::RectangleShape shape;
+
         virtual bool update(sf::Time time, World &world) = 0;
 
         virtual void render(sf::RenderWindow &window) = 0;
@@ -25,8 +27,6 @@ class Game_Object
 
 class Texture_Obj : public Game_Object
 {
-    protected:
-        sf::RectangleShape shape;
     public:
         Texture_Obj(sf::Vector2f center, const std::string &texture);
 

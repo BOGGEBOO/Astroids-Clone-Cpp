@@ -3,16 +3,29 @@
 
 #include "game_object.h"
 
-class Enemy : public Texture_Obj{
+class Enemy : public Texture_Obj
+{
+    protected:
+        float speed;
+
     public:
         Enemy(sf::Vector2f pos, const std::string &texture);
+
+
 };
 
-class Asteroid : public Enemy{
+class Asteroid : public Enemy
+{
     public:
         Asteroid(sf::Vector2f pos);
 
         bool update(sf::Time delta, World &World) override;
+
+    
+    private:
+        sf::Vector2f dir;
 };
+
+
 
 #endif
