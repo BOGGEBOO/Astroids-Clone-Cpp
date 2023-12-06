@@ -2,17 +2,17 @@
 #include "state.h"
 #include "game_state.h"
 
-Menu_State::Menu_State(std::shared_ptr<State> resume) 
-: selected(0), enter_pressed(false), delay(sf::milliseconds(300))
+Menu_State::Menu_State(std::shared_ptr<State> resume, int score) 
+: selected(0), enter_pressed(false), delay(sf::milliseconds(300)), score{score}
 {
-
     font.loadFromFile("fonts/ARCADE_N.TTF");
-
     if (resume){
         add("Resume", [resume]() {return resume;});
     }
     add("New Game", []() {return std::make_shared<Game_State>(); });
     add("Exit", []() {return std::make_shared<Exit_State>(); });
+
+    
 }
 
 void Menu_State::add(const std::string &text, Action action) 
@@ -79,9 +79,33 @@ void Menu_State::render(sf::RenderWindow &to)
     {
         background->render(to);
     }
-
-    float y{100};
+    
     auto windowSize = to.getSize();
+
+    //render title
+    titletext.setFont(font);
+    titletext.setString("TITLE");
+    titletext.setCharacterSize(100);
+
+    float title_y{100};
+
+    auto titlebounds = titletext.getLocalBounds();
+    titletext.setPosition((windowSize.x - titlebounds.width) / 2, title_y);
+    to.draw(titletext);
+    
+    //render score
+    scoretext.setFont(font);
+    scoretext.setString("Score: " + std::to_string(score));
+    scoretext.setCharacterSize(50);
+
+    float score_y{300};
+
+    auto bounds = scoretext.getLocalBounds();
+    scoretext.setPosition((windowSize.x - bounds.width) / 2, score_y);
+    to.draw(scoretext);
+
+    //render menu options
+    float y{400};
 
     for ( auto &e : entries )
     {
@@ -95,4 +119,5 @@ void Menu_State::render(sf::RenderWindow &to)
 
         to.draw(e.text);
     }
+
 }

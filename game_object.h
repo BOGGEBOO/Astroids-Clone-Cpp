@@ -8,13 +8,13 @@ class World;
 class Game_Object
 {
     public:
-        Game_Object(sf::Vector2f c, float r)
-        : center{c}, radius{r}
+        Game_Object(float r)
+        :radius{r}
         {}
 
         virtual ~Game_Object() = default;
 
-        sf::Vector2f center;
+        //sf::Vector2f center;
 
         float radius;
 
@@ -28,7 +28,7 @@ class Game_Object
 class Texture_Obj : public Game_Object
 {
     public:
-        Texture_Obj(sf::Vector2f center, const std::string &texture);
+        Texture_Obj(const std::string &texture);
 
         void render(sf::RenderWindow &window) override;
 };

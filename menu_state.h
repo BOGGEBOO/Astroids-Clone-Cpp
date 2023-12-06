@@ -9,7 +9,7 @@ class Menu_State : public State
 {
     public:
 
-        Menu_State(std::shared_ptr<State> resume = nullptr);
+        Menu_State(std::shared_ptr<State> resume = nullptr, int score = 0);
 
         void on_key_press(sf::Keyboard::Key key) override;
 
@@ -35,10 +35,14 @@ class Menu_State : public State
 
         sf::Time delay;
 
-
         std::shared_ptr<State> background;
 
         void add(const std::string &text, Action action);
+
+        int score;
+
+        sf::Text scoretext;
+        sf::Text titletext;
 
 };
 

@@ -8,7 +8,7 @@ class Projectile : public Texture_Obj
     private:
         float speed;
         float rot;
-        sf::Time lifetime;
+        sf::Vector2f dir;
 
     public:
         Projectile(sf::Vector2f pos, float rot);

@@ -4,7 +4,7 @@
 #include "projectile.h"
 
 Player::Player(sf::Vector2f pos)
-: Texture_Obj(pos, "images/player2.png"), speed(1.0f), rate{sf::milliseconds(1000)}
+: Texture_Obj("images/player.png"), speed(1.0f), rate{sf::milliseconds(1000)}
 {
     shape.setPosition(pos);
 }
@@ -21,16 +21,11 @@ float find_rotation(){
 
 bool Player::update(sf::Time delta, World &world)
 {
-    //sf::Clock clock;
     float rotation = find_rotation();
 
-    //auto delta = clock.restart();
-    
-    
-
     float spin = rotation * 250.0f * delta.asSeconds();
-    center.x = 250.0*-sin(shape.getRotation()*3.14159265/180)*delta.asSeconds() * speed;
-    center.y = 250.0*cos(shape.getRotation()*3.14159265/180)*delta.asSeconds() * speed;
+    dir.x = 250.0*-sin(shape.getRotation()*3.14159265/180)*delta.asSeconds() * speed;
+    dir.y = 250.0*cos(shape.getRotation()*3.14159265/180)*delta.asSeconds() * speed;
     
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::W) || sf::Keyboard::isKeyPressed(sf::Keyboard::Up)){
         speed += 0.05f * delta.asMicroseconds() / 10000.0f;
@@ -43,7 +38,7 @@ bool Player::update(sf::Time delta, World &world)
         speed = 5.0f;
     }
 
-    if (shape.getPosition().x < 0){
+    if (shape.getPosition().x < 0) {
         shape.setPosition(width, shape.getPosition().y);
     }
     
@@ -51,7 +46,7 @@ bool Player::update(sf::Time delta, World &world)
         shape.setPosition(0, shape.getPosition().y);
     }
 
-    if (shape.getPosition().y < 0){
+    if (shape.getPosition().y < 0) {
         shape.setPosition(shape.getPosition().x, height);
     }
     
@@ -59,18 +54,20 @@ bool Player::update(sf::Time delta, World &world)
         shape.setPosition(shape.getPosition().x, 0);
     }
 
-    
+    //shoot projectile from player position
     rate -= delta;
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && rate <= sf::Time{}){
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && rate <= sf::Time{}) {
         
         sf::Vector2f projpos{shape.getPosition().x, shape.getPosition().y};
         world.add(std::make_shared<Projectile>(projpos, shape.getRotation()));
         rate = sf::milliseconds(300);
+
     }
 
-    shape.move(center);
+    shape.move(dir);
     shape.rotate(spin); 
 
+    //check collision
     for (auto &collision : world.collides_with(*this))
     {
         if (dynamic_cast<Enemy *>(collision.get())) {
@@ -80,8 +77,3 @@ bool Player::update(sf::Time delta, World &world)
  
     return true;
 }
-
-// void Player::render(sf::RenderWindow &to)
-// {
-//     Texture_Obj::render(to);
-// }

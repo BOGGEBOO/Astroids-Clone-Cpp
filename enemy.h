@@ -7,9 +7,11 @@ class Enemy : public Texture_Obj
 {
     protected:
         float speed;
+        sf::Vector2f dir;
 
+        void out_of_bounds();
     public:
-        Enemy(sf::Vector2f pos, const std::string &texture);
+        Enemy(const std::string &texture);
 
 
 };
@@ -21,9 +23,6 @@ class Asteroid : public Enemy
 
         bool update(sf::Time delta, World &World) override;
 
-    
-    private:
-        sf::Vector2f dir;
 };
 
 class Mini : public Enemy
@@ -31,8 +30,6 @@ class Mini : public Enemy
     public:
         Mini(sf::Vector2f pos);
         bool update(sf::Time delta, World &World) override;
-    private:
-        sf::Vector2f dir;
 };
 
 class Comet : public Enemy 
@@ -41,10 +38,6 @@ class Comet : public Enemy
         Comet(sf::Vector2f pos);
 
         bool update(sf::Time delta, World &World) override;
-
-    
-    private:
-        sf::Vector2f dir;
 };
 
 #endif

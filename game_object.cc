@@ -2,8 +2,8 @@
 #include "texture_manager.h"
 #include <algorithm>
 
-Texture_Obj::Texture_Obj(sf::Vector2f center, const std::string &texture)
-: Game_Object(center, 0.0f)
+Texture_Obj::Texture_Obj(const std::string &texture)
+: Game_Object(0.0f)
 {
     sf::Texture *t = Texture_Manager::get(texture);
     auto size = t->getSize();
@@ -15,6 +15,5 @@ Texture_Obj::Texture_Obj(sf::Vector2f center, const std::string &texture)
 
 void Texture_Obj::render(sf::RenderWindow &window)
 {
-    //shape.setPosition(center);
     window.draw(shape);
 }

@@ -9,6 +9,8 @@ class Game_State : public State
     private:
         World world;
         std::vector<int> levels;
+        float player_x{width/2.0f};
+        float player_y{height/2.0f};
 
     public:
 

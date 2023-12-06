@@ -18,9 +18,14 @@ class World {
 
         int score{0};
         int maxEnemies{0};
+        
+
     
     private:
         std::vector<shared_ptr<Game_Object>> objects;
+
+        sf::Text text;
+        sf::Font font;
 };
 
 #endif

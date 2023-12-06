@@ -1,0 +1,26 @@
+\hypertarget{classAsteroid}{}\doxysection{Asteroid Class Reference}
+\label{classAsteroid}\index{Asteroid@{Asteroid}}
+
+
+Inheritance diagram for Asteroid\+:
+% FIG 0
+
+
+Collaboration diagram for Asteroid\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classAsteroid_a9f0b3a427cfc3e006e36c10abb5cc804}\label{classAsteroid_a9f0b3a427cfc3e006e36c10abb5cc804}} 
+{\bfseries Asteroid} (sf\+::\+Vector2f pos)
+\item 
+\mbox{\Hypertarget{classAsteroid_a8b22efbf52240edce6e2fdda09251de7}\label{classAsteroid_a8b22efbf52240edce6e2fdda09251de7}} 
+bool {\bfseries update} (sf\+::\+Time delta, \mbox{\hyperlink{classWorld}{World}} \&\mbox{\hyperlink{classWorld}{World}}) override
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+enemy.\+h\item 
+enemy.\+cc\end{DoxyCompactItemize}
