@@ -26,6 +26,25 @@ class Asteroid : public Enemy
         sf::Vector2f dir;
 };
 
+class Mini : public Enemy
+{
+    public:
+        Mini(sf::Vector2f pos);
+        bool update(sf::Time delta, World &World) override;
+    private:
+        sf::Vector2f dir;
+};
 
+class Comet : public Enemy 
+{
+    public:
+        Comet(sf::Vector2f pos);
+
+        bool update(sf::Time delta, World &World) override;
+
+    
+    private:
+        sf::Vector2f dir;
+};
 
 #endif

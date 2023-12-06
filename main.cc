@@ -2,8 +2,8 @@
 #include "menu_state.h"
 #include "includes.h"
 
-const size_t width{1024};
-const size_t height{768};
+const size_t width{1920};
+const size_t height{1080};
 
 int main()
 {

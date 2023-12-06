@@ -6,7 +6,7 @@
 Player::Player(sf::Vector2f pos)
 : Texture_Obj(pos, "images/player.png"), speed(1.0f), rate{sf::milliseconds(1000)}
 {
-    shape.setPosition(height / 2, width / 2);
+    shape.setPosition(pos);
 }
 
 float find_rotation(){

@@ -8,7 +8,7 @@ class Game_State : public State
 {
     private:
         World world;
-        int count;
+        std::vector<int> levels;
 
     public:
 

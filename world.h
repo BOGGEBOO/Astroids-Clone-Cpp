@@ -17,7 +17,8 @@ class World {
         bool is_dead();
 
         int score{0};
-        //sf::Text text;
+        int maxEnemies{0};
+    
     private:
         std::vector<shared_ptr<Game_Object>> objects;
 };
