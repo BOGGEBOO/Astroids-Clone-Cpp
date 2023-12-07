@@ -1,9 +1,17 @@
 #include "world.h"
 #include "player.h"
 
+World::World()
+{
+    font.loadFromFile("fonts/ARCADE_N.TTF");
+    text.setFont(font);
+    text.setCharacterSize(20);
+    text.setPosition(50.f, 50.f);
+}
+
 void World::update(sf::Time delta) {
-    for (size_t i{0}; i < objects.size(); i++){
-        if (!objects[i]->update(delta, *this)){
+    for (size_t i{0}; i < objects.size(); i++) {
+        if (!objects[i]->update(delta, *this)) {
             objects.erase(objects.begin() + i);
             i--;
         }
@@ -16,11 +24,7 @@ void World::render(sf::RenderWindow &to) {
     }
 
     //draw score
-    font.loadFromFile("fonts/ARCADE_N.TTF");
-    text.setFont(font);
     text.setString("Score: " + std::to_string(score));
-    text.setCharacterSize(20);
-    text.setPosition(50.f, 50.f);
     to.draw(text);
 }
 
@@ -28,7 +32,8 @@ void World::add(shared_ptr<Game_Object> object){
     objects.push_back(object);
 }
 
-bool World::is_dead() {
+//check if player is dead
+bool World::is_dead() const {
     if (!std::dynamic_pointer_cast<Player>(objects[0])) {
         return true;
     }

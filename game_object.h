@@ -8,15 +8,7 @@ class World;
 class Game_Object
 {
     public:
-        Game_Object(float r)
-        :radius{r}
-        {}
-
         virtual ~Game_Object() = default;
-
-        //sf::Vector2f center;
-
-        float radius;
 
         sf::RectangleShape shape;
 

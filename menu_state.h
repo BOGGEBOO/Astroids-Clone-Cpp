@@ -33,13 +33,11 @@ class Menu_State : public State
 
         bool enter_pressed;
 
-        sf::Time delay;
-
-        std::shared_ptr<State> background;
+        const sf::Time delay;
 
         void add(const std::string &text, Action action);
 
-        int score;
+        const int score;
 
         sf::Text scoretext;
         sf::Text titletext;

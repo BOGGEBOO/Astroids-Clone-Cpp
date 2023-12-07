@@ -9,13 +9,13 @@ class Player : public Texture_Obj
         float speed;
         sf::Time rate;
         sf::Vector2f dir;
+        float rotation;
+        float spin;
 
     public:
-        Player(sf::Vector2f pos);
+        Player(const sf::Vector2f &pos);
 
         bool update(sf::Time delta, World &world) override;
-        //void render(sf::RenderWindow &to) override;
 };
-
 
 #endif

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.9.15)  7 DEC 2023 08:15
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.9.15)  7 DEC 2023 09:46
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -963,10 +963,10 @@ Package rerunfilecheck Info: File `refman.out' has not changed.
 (rerunfilecheck)             Checksum: 4F553A22A2CCDA0D4E664A8338C7A814;5110.
  ) 
 Here is how much of TeX's memory you used:
- 17495 strings out of 478287
- 281793 string characters out of 5849289
- 588438 words of memory out of 5000000
- 35215 multiletter control sequences out of 15000+600000
+ 17493 strings out of 478287
+ 281675 string characters out of 5849289
+ 588391 words of memory out of 5000000
+ 35214 multiletter control sequences out of 15000+600000
  528967 words of font info for 101 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  99i,15n,117p,374b,640s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -979,10 +979,10 @@ urier/ucrro8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8
 a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8ac.pfb></usr
 /share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texli
 ve/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on refman.pdf (19 pages, 105732 bytes).
+Output written on refman.pdf (19 pages, 106258 bytes).
 PDF statistics:
- 476 PDF objects out of 1000 (max. 8388607)
- 432 compressed objects within 5 object streams
- 132 named destinations out of 1000 (max. 500000)
+ 475 PDF objects out of 1000 (max. 8388607)
+ 431 compressed objects within 5 object streams
+ 131 named destinations out of 1000 (max. 500000)
  225 words of extra memory for PDF output out of 10000 (max. 10000000)
 

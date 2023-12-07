@@ -6,12 +6,12 @@
 class Projectile : public Texture_Obj
 {
     private:
-        float speed;
-        float rot;
+        const float speed;
+        const float rot;
         sf::Vector2f dir;
 
     public:
-        Projectile(sf::Vector2f pos, float rot);
+        Projectile(const sf::Vector2f &pos, const float r);
     
         bool update(sf::Time delta, World &world) override;
 };

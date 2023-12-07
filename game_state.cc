@@ -12,22 +12,46 @@ Game_State::Game_State(){
 
 std::shared_ptr<State> Game_State::update(sf::Time delta) {
 
+    //spawn emenys depending on score
+    level_select();
+
+    //pause game
+    if ( sf::Keyboard::isKeyPressed(sf::Keyboard::Q) )
+    {
+        return std::make_shared<Menu_State>(shared_from_this(), world.score);
+    }
+
+    //check if player died
+    if (world.is_dead()){
+        return std::make_shared<Menu_State>(nullptr, world.score);
+    }
+    
+    world.update(delta);
+
+    return nullptr;
+}
+
+void Game_State::render(sf::RenderWindow &to )
+{
+    world.render(to);
+}
+
+void Game_State::level_select()
+{
     // random x- and y-coordinates
     float rand_x = std::experimental::randint(1, int(width));
     float rand_y = std::experimental::randint(1, int(height));
 
     // Avoid enemy to spawn on player
     // check if rand_x and rand_y is within range of player
-    int px{100};
-
-    bool x_in_middle{rand_x > player_x - px && rand_x < player_x + px};
-    bool y_in_middle{rand_y > player_y - px && rand_y < player_y + px};
+    bool x_in_middle{rand_x > player_x - distance && rand_x < player_x + distance};
+    bool y_in_middle{rand_y > player_y - distance && rand_y < player_y + distance};
     
     if ( x_in_middle && y_in_middle )  {
         
         while (true) {
-            x_in_middle = rand_x > player_x - px && rand_x < player_x + px;
-            y_in_middle = rand_y > player_y - px && rand_y < player_y + px;
+            x_in_middle = rand_x > player_x - distance && rand_x < player_x + distance;
+            y_in_middle = rand_y > player_y - distance && rand_y < player_y + distance;
 
             if ( x_in_middle && y_in_middle ) {
 
@@ -41,8 +65,7 @@ std::shared_ptr<State> Game_State::update(sf::Time delta) {
         }
     }
 
-    
-    int random = std::experimental::randint(1, 100);
+    random = std::experimental::randint(1, 100);
     
     // first level, spawn only asteroids
     if (world.score <= levels[0]){
@@ -88,24 +111,4 @@ std::shared_ptr<State> Game_State::update(sf::Time delta) {
             }
         }
     }    
-
-    //pause game
-    if ( sf::Keyboard::isKeyPressed(sf::Keyboard::Q) )
-    {
-        return std::make_shared<Menu_State>(shared_from_this(), world.score);
-    }
-
-    //check if player died
-    if (world.is_dead()){
-        return std::make_shared<Menu_State>(nullptr, world.score);
-    }
-    
-    world.update(delta);
-
-    return nullptr;
-}
-
-void Game_State::render(sf::RenderWindow &to )
-{
-    world.render(to);
 }

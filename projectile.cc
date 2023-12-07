@@ -2,8 +2,8 @@
 #include "world.h"
 #include "enemy.h"
 
-Projectile::Projectile(sf::Vector2f pos, float rot)
-: Texture_Obj("images/player.png"), speed(1.0f), rot{rot}
+Projectile::Projectile(const sf::Vector2f &pos, const float r)
+: Texture_Obj("images/player.png"), speed(1.0f), rot{r}
 {
     shape.setPosition(pos);
     shape.setRotation(rot);

@@ -3,7 +3,7 @@
 #include "enemy.h"
 #include "projectile.h"
 
-Player::Player(sf::Vector2f pos)
+Player::Player(const sf::Vector2f &pos)
 : Texture_Obj("images/player.png"), speed(1.0f), rate{sf::milliseconds(1000)}
 {
     shape.setPosition(pos);
@@ -21,9 +21,9 @@ float find_rotation(){
 
 bool Player::update(sf::Time delta, World &world)
 {
-    float rotation = find_rotation();
+    rotation = find_rotation();
 
-    float spin = rotation * 250.0f * delta.asSeconds();
+    spin = rotation * 250.0f * delta.asSeconds();
     dir.x = 250.0*-sin(shape.getRotation()*3.14159265/180)*delta.asSeconds() * speed;
     dir.y = 250.0*cos(shape.getRotation()*3.14159265/180)*delta.asSeconds() * speed;
     
@@ -38,6 +38,7 @@ bool Player::update(sf::Time delta, World &world)
         speed = 5.0f;
     }
 
+    //respawn player on the opposite side
     if (shape.getPosition().x < 0) {
         shape.setPosition(width, shape.getPosition().y);
     }

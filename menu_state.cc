@@ -11,8 +11,6 @@ Menu_State::Menu_State(std::shared_ptr<State> resume, int score)
     }
     add("New Game", []() {return std::make_shared<Game_State>(); });
     add("Exit", []() {return std::make_shared<Exit_State>(); });
-
-    
 }
 
 void Menu_State::add(const std::string &text, Action action) 
@@ -74,11 +72,6 @@ std::shared_ptr<State> Menu_State::update(sf::Time time)
 
 void Menu_State::render(sf::RenderWindow &to) 
 {
-
-    if (background)
-    {
-        background->render(to);
-    }
     
     auto windowSize = to.getSize();
 

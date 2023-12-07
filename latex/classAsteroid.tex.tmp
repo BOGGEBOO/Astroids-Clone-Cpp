@@ -11,7 +11,7 @@ Collaboration diagram for Asteroid\+:
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classAsteroid_a9f0b3a427cfc3e006e36c10abb5cc804}{Asteroid}} (sf\+::\+Vector2f pos)
+\mbox{\hyperlink{classAsteroid_a8b630cc9d76b86f2b000f3f401ea78df}{Asteroid}} (const sf\+::\+Vector2f \&pos)
 \begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classEnemy}{Enemy}} type 1\+: Astreoid. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classAsteroid_a8b22efbf52240edce6e2fdda09251de7}\label{classAsteroid_a8b22efbf52240edce6e2fdda09251de7}} 
 bool {\bfseries update} (sf\+::\+Time delta, \mbox{\hyperlink{classWorld}{World}} \&\mbox{\hyperlink{classWorld}{World}}) override
@@ -20,11 +20,11 @@ bool {\bfseries update} (sf\+::\+Time delta, \mbox{\hyperlink{classWorld}{World}
 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{classAsteroid_a9f0b3a427cfc3e006e36c10abb5cc804}\label{classAsteroid_a9f0b3a427cfc3e006e36c10abb5cc804}} 
+\mbox{\Hypertarget{classAsteroid_a8b630cc9d76b86f2b000f3f401ea78df}\label{classAsteroid_a8b630cc9d76b86f2b000f3f401ea78df}} 
 \index{Asteroid@{Asteroid}!Asteroid@{Asteroid}}
 \index{Asteroid@{Asteroid}!Asteroid@{Asteroid}}
 \doxysubsubsection{\texorpdfstring{Asteroid()}{Asteroid()}}
-{\footnotesize\ttfamily Asteroid\+::\+Asteroid (\begin{DoxyParamCaption}\item[{sf\+::\+Vector2f}]{pos }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily Asteroid\+::\+Asteroid (\begin{DoxyParamCaption}\item[{const sf\+::\+Vector2f \&}]{pos }\end{DoxyParamCaption})}
 
 
 

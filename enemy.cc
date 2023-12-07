@@ -3,19 +3,17 @@
 #include "projectile.h"
 #include <experimental/random>
 
-Enemy::Enemy(const std::string &texture)
-: Texture_Obj(texture)
+Enemy::Enemy(const std::string &texture, const float s)
+: Texture_Obj(texture), speed{s}, 
+  random{std::experimental::randint(1, 100) * 3.600}
 {}
 
 /// @brief Enemy type 1: Astreoid 
 /// @param pos 
-Asteroid::Asteroid(sf::Vector2f pos)
-: Enemy("images/asteroid.png")
+Asteroid::Asteroid(const sf::Vector2f &pos)
+: Enemy("images/asteroid.png", 1.0f)
 {
-    speed = 1.0f;
-    float random = std::experimental::randint(1, 100) * 3.600;
     shape.setRotation(random);
-
     shape.setPosition(pos);
 }
 
@@ -26,14 +24,14 @@ bool Asteroid::update(sf::Time delta, World &world)
     dir.y = 250.0*cos(shape.getRotation()*3.14159265/180)*delta.asSeconds() * speed;
     
     out_of_bounds();
-
     shape.move(dir);
     
     for (auto &collision : world.collides_with(*this))
     {
         if (dynamic_cast<Projectile *>(collision.get())) {
+
             world.score += 10;
-            //Ta bort när delad i två 
+            
             world.maxEnemies--;
             sf::Vector2f projpos{shape.getPosition().x, shape.getPosition().y};
             world.add(std::make_shared<Mini>(projpos));
@@ -46,12 +44,9 @@ bool Asteroid::update(sf::Time delta, World &world)
 
 /// @brief Enemy type 1: Asteroid splits into two smaller asteroids (Mini) when hit
 /// @param pos 
-Mini::Mini(sf::Vector2f pos)
-: Enemy("images/mini.png")
+Mini::Mini(const sf::Vector2f &pos)
+: Enemy("images/mini.png", 1.0f)
 {
-    speed = 1.0f;
-
-    float random = std::experimental::randint(1, 100) * 3.600;
     shape.setRotation(random);
     shape.setPosition(pos);
 }
@@ -69,8 +64,9 @@ bool Mini::update(sf::Time delta, World &world)
     for (auto &collision : world.collides_with(*this))
     {
         if (dynamic_cast<Projectile *>(collision.get())) {
+
             world.score += 10;
-            //Ta bort när dela i två fungerar
+            
             world.maxEnemies--;
             return false;
         }
@@ -80,14 +76,10 @@ bool Mini::update(sf::Time delta, World &world)
 
 /// @brief Enemy type 2: Comet
 /// @param pos 
-Comet::Comet(sf::Vector2f pos)
-: Enemy("images/comet.png")
+Comet::Comet(const sf::Vector2f &pos)
+: Enemy("images/comet.png", 3.0f)
 {
-    speed = 3.0f;
-
-    float random = std::experimental::randint(1, 100) * 3.600;
     shape.setRotation(random);
-
     shape.setPosition(pos);
 };
 

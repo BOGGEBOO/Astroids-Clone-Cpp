@@ -6,6 +6,8 @@
 
 class World {
     public:
+        World();
+
         void update(sf::Time delta);
 
         void render(sf::RenderWindow &to);
@@ -14,13 +16,11 @@ class World {
 
         std::vector<shared_ptr<Game_Object>> collides_with(Game_Object &me) const;
 
-        bool is_dead();
+        bool is_dead() const;
 
         int score{0};
         int maxEnemies{0};
         
-
-    
     private:
         std::vector<shared_ptr<Game_Object>> objects;
 
