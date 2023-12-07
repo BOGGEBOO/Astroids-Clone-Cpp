@@ -7,7 +7,8 @@ Enemy::Enemy(const std::string &texture)
 : Texture_Obj(texture)
 {}
 
-
+/// @brief Enemy type 1: Astreoid 
+/// @param pos 
 Asteroid::Asteroid(sf::Vector2f pos)
 : Enemy("images/asteroid.png")
 {
@@ -32,7 +33,7 @@ bool Asteroid::update(sf::Time delta, World &world)
     {
         if (dynamic_cast<Projectile *>(collision.get())) {
             world.score += 10;
-            //Ta bort när dela i två fungerar
+            //Ta bort när delad i två 
             world.maxEnemies--;
             sf::Vector2f projpos{shape.getPosition().x, shape.getPosition().y};
             world.add(std::make_shared<Mini>(projpos));
@@ -43,6 +44,8 @@ bool Asteroid::update(sf::Time delta, World &world)
     return true;
 }
 
+/// @brief Enemy type 1: Asteroid splits into two smaller asteroids (Mini) when hit
+/// @param pos 
 Mini::Mini(sf::Vector2f pos)
 : Enemy("images/mini.png")
 {
@@ -75,6 +78,8 @@ bool Mini::update(sf::Time delta, World &world)
     return true;
 }
 
+/// @brief Enemy type 2: Comet
+/// @param pos 
 Comet::Comet(sf::Vector2f pos)
 : Enemy("images/comet.png")
 {

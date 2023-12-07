@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.9.15)  6 DEC 2023 15:55
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.9.15)  7 DEC 2023 08:15
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -935,44 +935,54 @@ File: ts1phv.fd 2020/03/25 scalable font definitions for TS1/phv.
 )
 LaTeX Font Info:    Font shape `TS1/phv/m/n' will be
 (Font)              scaled to size 8.99994pt on input line 14.
-) (./classEnemy.tex
-[7]) (./classExit__State.tex) (./classGame__Object.tex) (./classGame__State.tex
-[8]
+LaTeX Font Info:    Font shape `T1/phv/m/n' will be
+(Font)              scaled to size 8.09995pt on input line 15.
+LaTeX Font Info:    Font shape `T1/phv/m/it' in size <9> not available
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 15.
+LaTeX Font Info:    Font shape `T1/phv/m/sl' will be
+(Font)              scaled to size 8.09995pt on input line 15.
+LaTeX Font Info:    Font shape `T1/phv/m/it' in size <7> not available
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 15.
+LaTeX Font Info:    Font shape `T1/phv/m/sl' will be
+(Font)              scaled to size 6.29996pt on input line 15.
 LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <8> not available
 (Font)              Font shape `T1/pcr/m/sl' tried instead on input line 27.
-) (./classMenu__State.tex [9]) (./classMini.tex) (./classPlayer.tex)
-(./classProjectile.tex [10]) (./classState.tex) (./classTexture__Manager.tex
-[11]) (./classTexture__Obj.tex) (./classWorld.tex) [12] (./refman.ind [13
+ [7])
+(./classEnemy.tex) (./classExit__State.tex) (./classGame__Object.tex [8])
+(./classGame__State.tex) (./classMenu__State.tex [9]) (./classMini.tex [10])
+(./classPlayer.tex) (./classProjectile.tex) (./classState.tex [11])
+(./classTexture__Manager.tex) (./classTexture__Obj.tex) (./classWorld.tex
+[12]) [13] [14
+
+] (./refman.ind [15
 
 
 
-
-])
-(./refman.aux)
+]) (./refman.aux)
 Package rerunfilecheck Info: File `refman.out' has not changed.
-(rerunfilecheck)             Checksum: 4087CDEE82A8B5E46C3DCB58BE2E544B;4616.
+(rerunfilecheck)             Checksum: 4F553A22A2CCDA0D4E664A8338C7A814;5110.
  ) 
 Here is how much of TeX's memory you used:
- 17487 strings out of 478287
- 281681 string characters out of 5849289
- 590334 words of memory out of 5000000
- 35208 multiletter control sequences out of 15000+600000
- 520207 words of font info for 107 fonts, out of 8000000 for 9000
+ 17495 strings out of 478287
+ 281793 string characters out of 5849289
+ 588438 words of memory out of 5000000
+ 35215 multiletter control sequences out of 15000+600000
+ 528967 words of font info for 101 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 99i,15n,117p,349b,409s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 99i,15n,117p,374b,640s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/
-urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/u
-crro8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb><
-/usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8ac.pfb></usr/share/
-texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on refman.pdf (17 pages, 104946 bytes).
+/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts
+/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/co
+urier/ucrro8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8
+a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8ac.pfb></usr
+/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
+Output written on refman.pdf (19 pages, 105732 bytes).
 PDF statistics:
- 445 PDF objects out of 1000 (max. 8388607)
- 403 compressed objects within 5 object streams
- 126 named destinations out of 1000 (max. 500000)
- 209 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 476 PDF objects out of 1000 (max. 8388607)
+ 432 compressed objects within 5 object streams
+ 132 named destinations out of 1000 (max. 500000)
+ 225 words of extra memory for PDF output out of 10000 (max. 10000000)
 

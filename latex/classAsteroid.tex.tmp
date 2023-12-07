@@ -11,13 +11,31 @@ Collaboration diagram for Asteroid\+:
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classAsteroid_a9f0b3a427cfc3e006e36c10abb5cc804}\label{classAsteroid_a9f0b3a427cfc3e006e36c10abb5cc804}} 
-{\bfseries Asteroid} (sf\+::\+Vector2f pos)
-\item 
+\mbox{\hyperlink{classAsteroid_a9f0b3a427cfc3e006e36c10abb5cc804}{Asteroid}} (sf\+::\+Vector2f pos)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classEnemy}{Enemy}} type 1\+: Astreoid. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classAsteroid_a8b22efbf52240edce6e2fdda09251de7}\label{classAsteroid_a8b22efbf52240edce6e2fdda09251de7}} 
 bool {\bfseries update} (sf\+::\+Time delta, \mbox{\hyperlink{classWorld}{World}} \&\mbox{\hyperlink{classWorld}{World}}) override
 \end{DoxyCompactItemize}
 \doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classAsteroid_a9f0b3a427cfc3e006e36c10abb5cc804}\label{classAsteroid_a9f0b3a427cfc3e006e36c10abb5cc804}} 
+\index{Asteroid@{Asteroid}!Asteroid@{Asteroid}}
+\index{Asteroid@{Asteroid}!Asteroid@{Asteroid}}
+\doxysubsubsection{\texorpdfstring{Asteroid()}{Asteroid()}}
+{\footnotesize\ttfamily Asteroid\+::\+Asteroid (\begin{DoxyParamCaption}\item[{sf\+::\+Vector2f}]{pos }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{classEnemy}{Enemy}} type 1\+: Astreoid. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pos} & ~\newline
+ \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
