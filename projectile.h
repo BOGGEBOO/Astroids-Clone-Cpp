@@ -3,7 +3,7 @@
 
 #include "game_object.h"
 
-class Projectile : public Texture_Obj
+class Projectile : public Game_Object
 {
     private:
         const float speed;

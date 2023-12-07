@@ -2,7 +2,7 @@
 #include "texture_manager.h"
 #include <algorithm>
 
-Texture_Obj::Texture_Obj(const std::string &texture)
+Game_Object::Game_Object(const std::string &texture)
 {
     sf::Texture *t = Texture_Manager::get(texture);
     auto size = t->getSize();
@@ -11,7 +11,6 @@ Texture_Obj::Texture_Obj(const std::string &texture)
     shape.setOrigin(size.x / 2, size.y / 2);
 }
 
-void Texture_Obj::render(sf::RenderWindow &window)
-{
+void Game_Object::render(sf::RenderWindow &window){
     window.draw(shape);
 }

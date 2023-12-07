@@ -4,7 +4,7 @@
 #include "projectile.h"
 
 Player::Player(const sf::Vector2f &pos)
-: Texture_Obj("images/player.png"), speed(1.0f), rate{sf::milliseconds(1000)}
+: Game_Object("images/player.png"), speed(1.0f), rate{sf::milliseconds(1000)}
 {
     shape.setPosition(pos);
 }
@@ -72,7 +72,7 @@ bool Player::update(sf::Time delta, World &world)
     for (auto &collision : world.collides_with(*this))
     {
         if (dynamic_cast<Enemy *>(collision.get())) {
-            return false;
+            return true;
         }
     }
  

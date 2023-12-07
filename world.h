@@ -18,8 +18,12 @@ class World {
 
         bool is_dead() const;
 
+        sf::Vector2f player_pos() const;
+
         int score{0};
         int maxEnemies{0};
+        int ufo_num;
+
         
     private:
         std::vector<shared_ptr<Game_Object>> objects;

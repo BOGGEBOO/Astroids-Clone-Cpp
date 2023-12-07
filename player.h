@@ -3,12 +3,12 @@
 
 #include "game_object.h"
 
-class Player : public Texture_Obj
+class Player : public Game_Object
 {
     private:
         float speed;
         sf::Time rate;
-        sf::Vector2f dir;
+        //sf::Vector2f dir;
         float rotation;
         float spin;
 
@@ -16,6 +16,7 @@ class Player : public Texture_Obj
         Player(const sf::Vector2f &pos);
 
         bool update(sf::Time delta, World &world) override;
+
 };
 
 #endif

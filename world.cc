@@ -42,6 +42,10 @@ bool World::is_dead() const {
     }
 }
 
+sf::Vector2f World::player_pos() const {
+    return objects[0]->shape.getPosition();
+}
+
 static bool collides(Game_Object &a, Game_Object &b) {
 
     bool coll = b.shape.getGlobalBounds().intersects(a.shape.getGlobalBounds());

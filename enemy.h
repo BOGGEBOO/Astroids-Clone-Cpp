@@ -3,11 +3,11 @@
 
 #include "game_object.h"
 
-class Enemy : public Texture_Obj
+class Enemy : public Game_Object
 {
     protected:
         const float speed;
-        sf::Vector2f dir;
+        //sf::Vector2f dir;
         const double random;
 
         void out_of_bounds();
@@ -18,23 +18,43 @@ class Enemy : public Texture_Obj
 class Asteroid : public Enemy
 {
     public:
-        Asteroid(const sf::Vector2f &pos);
+        Asteroid(const sf::Vector2f &pos, const float speed,
+                 const std::string &texture);
         bool update(sf::Time delta, World &World) override;
-
+    private:
+        const std::string type;
 };
 
-class Mini : public Enemy
+class Missile : public Enemy
 {
     public:
-        Mini(const sf::Vector2f &pos);
-        bool update(sf::Time delta, World &World) override;
+        Missile(const sf::Vector2f &pos, const float speed,
+                const std::string &texture);
+        
+        bool update(sf::Time delta, World &World) override; 
 };
 
-class Comet : public Enemy 
+
+class Ufo : public Enemy
 {
     public:
-        Comet(const sf::Vector2f &pos);
+        Ufo(const sf::Vector2f &pos, const float speed,
+            const std::string &texture);
+        
         bool update(sf::Time delta, World &World) override;
+
+    private:
+        sf::Time cooldown;
+};
+
+class Bullet : public Enemy
+{
+    public:
+        Bullet(const sf::Vector2f &pos, const float speed,
+            const std::string &texture, const sf::Vector2f &player);
+
+        bool update(sf::Time delta, World &World) override;
+
 };
 
 #endif
