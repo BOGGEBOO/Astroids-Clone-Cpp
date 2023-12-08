@@ -10,7 +10,6 @@ class State : public std::enable_shared_from_this<State>{
     virtual ~State();
 
     virtual void on_key_press(sf::Keyboard::Key key);
-    virtual void on_key_release(sf::Keyboard::Key key);
 
     virtual std::shared_ptr<State> update(sf::Time time) = 0;
 

@@ -5,8 +5,6 @@ State::~State() {}
 
 void State::on_key_press(sf::Keyboard::Key) {}
 
-void State::on_key_release(sf::Keyboard::Key) {}
-
 void State::run(sf::RenderWindow &window, std::shared_ptr<State> state) 
 {
     sf::Clock clock;
@@ -20,9 +18,6 @@ void State::run(sf::RenderWindow &window, std::shared_ptr<State> state)
                 return;
             case sf::Event::KeyPressed:
                 state->on_key_press(event.key.code);
-                break;
-            case sf::Event::KeyReleased:
-                state->on_key_release(event.key.code);
                 break;
             default:
                 break;
