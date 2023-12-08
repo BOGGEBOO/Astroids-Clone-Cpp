@@ -3,7 +3,7 @@
 #include "enemy.h"
 
 Projectile::Projectile(const sf::Vector2f &pos, const float r)
-: Game_Object("images/player.png"), speed(5.0f), rot{r}
+: Game_Object("images/projectile1.png"), speed(5.0f), rot{r}
 {
     shape.setPosition(pos);
     shape.setRotation(rot);

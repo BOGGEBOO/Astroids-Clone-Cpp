@@ -46,6 +46,27 @@ sf::Vector2f World::player_pos() const {
     return objects[0]->shape.getPosition();
 }
 
+int World::get_score(){
+    return score;
+}
+void World::add_score(int s){
+    score += s;
+}
+
+int World::get_maxEnemies(){
+    return maxEnemies;
+}
+void World::add_maxEnemies(int m){
+    maxEnemies += m;
+}
+
+int World::get_ufo_num(){
+    return ufo_num;
+}
+void World::add_ufo_num(int u){
+    ufo_num += u;
+}
+
 static bool collides(Game_Object &a, Game_Object &b) {
 
     bool coll = b.shape.getGlobalBounds().intersects(a.shape.getGlobalBounds());

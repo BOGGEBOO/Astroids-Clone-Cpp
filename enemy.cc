@@ -31,16 +31,16 @@ bool Asteroid::update(sf::Time delta, World &world)
     {
         if (dynamic_cast<Projectile *>(collision.get())) {
 
-            world.score += 10;
+            world.add_score(10);
             
-            world.maxEnemies--;
+            world.add_maxEnemies(-1);
             if (type == "images/asteroid.png") {
                 sf::Vector2f projpos{shape.getPosition().x, shape.getPosition().y};
                 world.add(std::make_shared<Asteroid>(projpos, 3.0f, 
-                "images/mini.png"));
+                                                     "images/mini.png"));
                 world.add(std::make_shared<Asteroid>(projpos, 3.0f, 
-                "images/mini.png"));
-                world.maxEnemies += 2;
+                                                     "images/mini.png"));
+                world.add_maxEnemies(2);
             }
             
             return false;
@@ -68,7 +68,8 @@ bool Missile::update(sf::Time delta, World &world)
     {
         if (dynamic_cast<Projectile *>(collision.get())) {
 
-            world.score += 10;
+            world.add_maxEnemies(1);
+            world.add_score(10);
             return false;
         }
     }
@@ -81,7 +82,7 @@ Ufo::Ufo(const sf::Vector2f &pos, const float speed,
 : Enemy(texture, speed)
 {
     cooldown = sf::milliseconds(2000);
-    shape.setRotation(random);
+    //shape.setRotation(random);
     shape.setPosition(pos);
 }
 
@@ -97,7 +98,7 @@ bool Ufo::update(sf::Time delta, World &world)
         
         sf::Vector2f projpos{shape.getPosition().x, shape.getPosition().y};
         world.add(std::make_shared<Bullet>(projpos, speed,
-         "images/comet.png", world.player_pos()));
+         "images/laser.png", world.player_pos()));
         cooldown = sf::milliseconds(2000);
 
     }
@@ -105,9 +106,9 @@ bool Ufo::update(sf::Time delta, World &world)
     for (auto &collision : world.collides_with(*this))
     {
         if (dynamic_cast<Projectile *>(collision.get())) {
-
-            world.score += 10;
-            world.ufo_num--;
+            world.add_maxEnemies(-1);
+            world.add_score(10);
+            world.add_ufo_num(-1);
             return false;
         }
     }
@@ -150,7 +151,7 @@ bool Bullet::update(sf::Time delta, World &world)
     {
         if (dynamic_cast<Projectile *>(collision.get())) {
 
-            world.score += 10;
+            world.add_score(10);
             return false;
         }
     }

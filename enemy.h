@@ -7,7 +7,6 @@ class Enemy : public Game_Object
 {
     protected:
         const float speed;
-        //sf::Vector2f dir;
         const double random;
 
         void out_of_bounds();

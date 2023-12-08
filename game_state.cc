@@ -18,12 +18,12 @@ std::shared_ptr<State> Game_State::update(sf::Time delta) {
     //pause game
     if ( sf::Keyboard::isKeyPressed(sf::Keyboard::Q) )
     {
-        return std::make_shared<Menu_State>(shared_from_this(), world.score);
+        return std::make_shared<Menu_State>(shared_from_this(), world.get_score());
     }
 
     //check if player died
     if (world.is_dead()){
-        return std::make_shared<Menu_State>(nullptr, world.score);
+        return std::make_shared<Menu_State>(nullptr, world.get_score());
     }
     
     world.update(delta);
@@ -72,110 +72,110 @@ void Game_State::level_select()
     random = std::experimental::randint(1, 100);
     
     // first level, spawn only asteroids
-    if (world.score <= levels[0]){
-        if (random == 10 && world.maxEnemies < 5) {
+    if (world.get_score() <= levels[0]){
+        if (random == 10 && world.get_maxEnemies() < 5) {
             world.add(std::make_shared<Asteroid>(spawn, 
             1.0f, "images/asteroid.png"));
-            world.maxEnemies++;
+            world.add_maxEnemies(1);
 
         }
     }
     
     // second level, spawn only asteroids
-    if (world.score <= levels[1] && world.score > levels[0]){
-        if (random == 10 && world.maxEnemies < 8){
+    if (world.get_score() <= levels[1] && world.get_score() > levels[0]){
+        if (random == 10 && world.get_maxEnemies() < 8){
             world.add(std::make_shared<Asteroid>(spawn,
             1.0f, "images/asteroid.png"));
-            world.maxEnemies++;
+            world.add_maxEnemies(1);
         }
     }
     
     // third level, either asteroids or comets
-    if (world.score <= levels[2] && world.score > levels[1]){
-        if (random == 10 && world.maxEnemies < 10){
+    if (world.get_score() <= levels[2] && world.get_score() > levels[1]){
+        if (random == 10 && world.get_maxEnemies() < 10){
             if (std::experimental::randint(1,3) == 1){
                 world.add(std::make_shared<Asteroid>(spawn,
                 3.0f, "images/comet.png"));
-                world.maxEnemies++;
+                world.add_maxEnemies(1);
             }
             else{
                 world.add(std::make_shared<Asteroid>(spawn,
                 1.0f, "images/asteroid.png"));
-                world.maxEnemies++;
+                world.add_maxEnemies(1);
             }
         }
     }
     
     //third level, either asteroids or comets or missiles
-    if (world.score <=levels[3] && world.score > levels[2]){
-        if (random == 10 && world.maxEnemies < 15){
+    if (world.get_score() <=levels[3] && world.get_score() > levels[2]){
+        if (random == 10 && world.get_maxEnemies() < 15){
             const int choise{std::experimental::randint(1,4)};
             if (choise == 1){
                 world.add(std::make_shared<Asteroid>(spawn,
                 3.0f, "images/comet.png"));
-                world.maxEnemies++;
+                world.add_maxEnemies(1);
             }
             else if (choise == 2){
                 world.add(std::make_shared<Missile>(spawn, 
-                2.0f, "images/comet.png"));
-                world.maxEnemies++;
+                2.0f, "images/missile.png"));
+                world.add_maxEnemies(1);
             }
             else{
                 world.add(std::make_shared<Asteroid>(spawn,
                 1.0f, "images/asteroid.png"));
-                world.maxEnemies++;
+                world.add_maxEnemies(1);
             }
         }
     }
 
-    if (world.score <=levels[4] && world.score > levels[3]){
-        if (random == 10 && world.maxEnemies < 17){
+    if (world.get_score() <=levels[4] && world.get_score() > levels[3]){
+        if (random == 10 && world.get_maxEnemies() < 17){
             const int choise{std::experimental::randint(1,5)};
             if (choise == 1){
                 world.add(std::make_shared<Asteroid>(spawn,
                 3.0f, "images/comet.png"));
-                world.maxEnemies++;
+                world.add_maxEnemies(1);
             }
             else if (choise == 2){
                 world.add(std::make_shared<Missile>(spawn, 
-                2.0f, "images/comet.png"));
-                world.maxEnemies++;
+                2.0f, "images/missile.png"));
+                world.add_maxEnemies(1);
             }
-            else if (choise == 3 && world.ufo_num < 1){
+            else if (choise == 3 && world.get_ufo_num() < 1){
                 world.add(std::make_shared<Ufo>(sf::Vector2f{1, 100}, 
-                1.0f, "images/player.png"));
-                world.ufo_num++;
+                1.0f, "images/UFO.png"));
+                world.add_ufo_num(1);
             }
             else{
                 world.add(std::make_shared<Asteroid>(spawn,
                 1.0f, "images/asteroid.png"));
-                world.maxEnemies++;
+                world.add_maxEnemies(1);
             }
         }
     }
 
-    if (world.score >= levels[4]){
-        if (random == 10 && world.maxEnemies < 20){
+    if (world.get_score() >= levels[4]){
+        if (random == 10 && world.get_maxEnemies() < 20){
             const int choise{std::experimental::randint(1,5)};
             if (choise == 1){
                 world.add(std::make_shared<Asteroid>(spawn,
                 3.0f, "images/comet.png"));
-                world.maxEnemies++;
+                world.add_maxEnemies(1);
             }
             else if (choise == 2){
                 world.add(std::make_shared<Missile>(spawn, 
-                2.0f, "images/comet.png"));
-                world.maxEnemies++;
+                2.0f, "images/missile.png"));
+                world.add_maxEnemies(1);
             }
-            else if (choise == 3 && world.ufo_num < 3){
+            else if (choise == 3 && world.get_ufo_num() < 3){
                 world.add(std::make_shared<Ufo>(sf::Vector2f{1, 100}, 
-                1.0f, "images/player.png"));
-                world.ufo_num++;
+                1.0f, "images/UFO.png"));
+                world.add_ufo_num(1);
             }
             else{
                 world.add(std::make_shared<Asteroid>(spawn,
                 1.0f, "images/asteroid.png"));
-                world.maxEnemies++;
+                world.add_maxEnemies(1);
             }
         }
     }       

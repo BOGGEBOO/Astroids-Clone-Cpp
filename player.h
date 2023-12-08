@@ -8,7 +8,6 @@ class Player : public Game_Object
     private:
         float speed;
         sf::Time rate;
-        //sf::Vector2f dir;
         float rotation;
         float spin;
 

@@ -9,7 +9,7 @@ class Game_Object
 {
     public:
         Game_Object(const std::string &texture);
-        //virtual ~Game_Object() = default;
+        virtual ~Game_Object() = default;
 
         sf::RectangleShape shape;
 
@@ -19,13 +19,5 @@ class Game_Object
 
         void render(sf::RenderWindow &window);
 };
-
-// class Texture_Obj : public Game_Object
-// {
-//     public:
-//         Texture_Obj(const std::string &texture);
-
-//         void render(sf::RenderWindow &window) override;
-// };
 
 #endif

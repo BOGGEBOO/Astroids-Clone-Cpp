@@ -20,9 +20,15 @@ class World {
 
         sf::Vector2f player_pos() const;
 
-        int score{0};
-        int maxEnemies{0};
-        int ufo_num;
+        int get_score();
+        int get_maxEnemies();
+        int get_ufo_num();
+
+        void add_score(int s);
+        void add_maxEnemies(int m);
+        void add_ufo_num(int u);
+
+        
 
         
     private:
@@ -30,6 +36,10 @@ class World {
 
         sf::Text text;
         sf::Font font;
+
+        int score{0};
+        int maxEnemies{0};
+        int ufo_num;
 };
 
 #endif
