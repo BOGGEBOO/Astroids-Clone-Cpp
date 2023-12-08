@@ -1,5 +1,4 @@
-## <Game_title>
-
+## Space survival
 
 ## HowTo
 
@@ -9,4 +8,5 @@
 
 ### Documentation
 
-    See file 'class_documentation.pdf' in /docs
+    See files in /docs
+
