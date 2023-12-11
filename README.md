@@ -10,3 +10,5 @@
 
     See files in /docs
 
+##### Generate doxygen documentation
+    doxygen Doxyfile
