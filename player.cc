@@ -72,7 +72,7 @@ bool Player::update(sf::Time delta, World &world)
     for (auto &collision : world.collides_with(*this))
     {
         if (dynamic_cast<Enemy *>(collision.get())) {
-            return true;
+            return false;
         }
     }
  
