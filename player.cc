@@ -74,6 +74,12 @@ bool Player::update(sf::Time delta, World &world)
 
     }
 
+    
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::O)){
+      invincible = true;
+
+    }
+
     shape.move(dir);
     shape.rotate(spin); 
 
@@ -81,7 +87,7 @@ bool Player::update(sf::Time delta, World &world)
     for (auto &collision : world.collides_with(*this))
     {
         if (dynamic_cast<Enemy *>(collision.get())) {
-            return false;
+            return invincible;
         }
     }
  
