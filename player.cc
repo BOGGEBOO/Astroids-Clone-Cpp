@@ -3,12 +3,18 @@
 #include "enemy.h"
 #include "projectile.h"
 
+/**
+ * Class for the gameobject controlled by the player
+*/
 Player::Player(const sf::Vector2f &pos)
 : Game_Object("images/player.png"), speed(1.0f), rate{sf::milliseconds(1000)}
 {
     shape.setPosition(pos);
 }
 
+/**
+ * Get rotation direction from user input 
+*/
 float find_rotation(){
     float rotation{0};
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::A) || sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
@@ -19,6 +25,9 @@ float find_rotation(){
     return rotation;
 }
 
+/**
+ * Update player position and checks for collision with enemy
+*/
 bool Player::update(sf::Time delta, World &world)
 {
     rotation = find_rotation();

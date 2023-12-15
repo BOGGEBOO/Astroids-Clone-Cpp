@@ -1,6 +1,9 @@
 #include "texture_manager.h"
 #include <stdexcept>
 
+/**
+ * Class for controlling all textures
+*/
 sf::Texture *Texture_Manager::get(const std::string &name){
     auto found = instance.textures.find(name);
     if (found != instance.textures.end())

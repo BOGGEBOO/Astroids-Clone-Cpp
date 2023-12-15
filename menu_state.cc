@@ -2,6 +2,9 @@
 #include "state.h"
 #include "game_state.h"
 
+/**
+ * Class for displaying menu
+*/
 Menu_State::Menu_State(std::shared_ptr<State> resume, int score) 
 : selected(0), enter_pressed(false), delay(sf::milliseconds(300)), score{score}
 {
@@ -13,11 +16,17 @@ Menu_State::Menu_State(std::shared_ptr<State> resume, int score)
     add("Exit", []() {return std::make_shared<Exit_State>(); });
 }
 
+/**
+ * Addes option to select in menu
+*/
 void Menu_State::add(const std::string &text, Action action) 
 {
     entries.push_back( {sf::Text{text, font, 60}, 0.0f, action} );
 }
 
+/**
+ * Checks which menu option is selected by the user
+*/
 void Menu_State::on_key_press(sf::Keyboard::Key key) 
 {
     switch(key)
@@ -38,6 +47,9 @@ void Menu_State::on_key_press(sf::Keyboard::Key key)
     }
 }
 
+/**
+ * Updates which option is to be highlighted and returns if option has been selected
+*/
 std::shared_ptr<State> Menu_State::update(sf::Time time) 
 {
     float diff = float(time.asMicroseconds()) / float(delay.asMicroseconds());
@@ -70,6 +82,9 @@ std::shared_ptr<State> Menu_State::update(sf::Time time)
     }
 }
 
+/**
+ * Renders the menu
+*/
 void Menu_State::render(sf::RenderWindow &to) 
 {
     

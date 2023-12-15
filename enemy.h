@@ -24,6 +24,7 @@ class Asteroid : public Enemy
         const std::string type;
 };
 
+
 class Missile : public Enemy
 {
     public:
@@ -32,7 +33,6 @@ class Missile : public Enemy
         
         bool update(sf::Time delta, World &World) override; 
 };
-
 
 class Ufo : public Enemy
 {

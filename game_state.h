@@ -11,7 +11,7 @@ class Game_State : public State
         std::vector<int> levels;
         const float player_x{ width / 2.0f };
         const float player_y{ height / 2.0f };
-        const int distance{100};
+        const int distance{300};
         int random;
 
         void level_select();

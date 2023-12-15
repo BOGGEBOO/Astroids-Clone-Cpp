@@ -2,6 +2,9 @@
 #include "texture_manager.h"
 #include <algorithm>
 
+/**
+ * Base class for all objects in the game
+*/
 Game_Object::Game_Object(const std::string &texture)
 {
     sf::Texture *t = Texture_Manager::get(texture);
@@ -11,6 +14,9 @@ Game_Object::Game_Object(const std::string &texture)
     shape.setOrigin(size.x / 2, size.y / 2);
 }
 
+/**
+ * Draws object on screen
+*/
 void Game_Object::render(sf::RenderWindow &window){
     window.draw(shape);
 }

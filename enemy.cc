@@ -5,11 +5,17 @@
 #include <experimental/random>
 #include <cmath>
 
+/**
+ * Base class for all enemy types
+*/
 Enemy::Enemy(const std::string &texture, const float s)
 : Game_Object(texture), speed{s}, 
   random{std::experimental::randint(1, 100) * 3.600}
 {}
 
+/**
+ * Main enemy type. Flies in a random direction
+*/
 Asteroid::Asteroid(const sf::Vector2f &pos, const float speed,
                    const std::string &texture)
 : Enemy(texture, speed), type{texture}
@@ -18,6 +24,9 @@ Asteroid::Asteroid(const sf::Vector2f &pos, const float speed,
     shape.setPosition(pos);
 }
 
+/**
+ * Updates asteroid position and checks for collision with projectile
+*/
 bool Asteroid::update(sf::Time delta, World &world)
 {
 
@@ -49,6 +58,9 @@ bool Asteroid::update(sf::Time delta, World &world)
     return true;
 }
 
+/**
+ * Second enemy type. Follows player position
+*/
 Missile::Missile(const sf::Vector2f &pos, const float speed,
                  const std::string &texture)
 : Enemy(texture, speed)
@@ -57,6 +69,9 @@ Missile::Missile(const sf::Vector2f &pos, const float speed,
     shape.setPosition(pos);
 }
 
+/**
+ * Updates missile position and checks for collision with projectile
+*/
 bool Missile::update(sf::Time delta, World &world)
 {
     dir = world.player_pos() - shape.getPosition();
@@ -77,15 +92,20 @@ bool Missile::update(sf::Time delta, World &world)
     return true;
 }
 
+/**
+ * Third enemy type. Shoots towards player position
+*/
 Ufo::Ufo(const sf::Vector2f &pos, const float speed,
                    const std::string &texture)
 : Enemy(texture, speed)
 {
     cooldown = sf::milliseconds(2000);
-    //shape.setRotation(random);
     shape.setPosition(pos);
 }
 
+/**
+ * Updates ufo position and checks for collision with projectile
+*/
 bool Ufo::update(sf::Time delta, World &world)
 {
     dir.x = 100;
@@ -116,6 +136,9 @@ bool Ufo::update(sf::Time delta, World &world)
     return true;
 }
 
+/**
+ * Spawns from ufo. Flies towards player position 
+*/
 Bullet::Bullet(const sf::Vector2f &pos, const float speed,
                    const std::string &texture, const sf::Vector2f &player)
 : Enemy(texture, speed)
@@ -127,6 +150,9 @@ Bullet::Bullet(const sf::Vector2f &pos, const float speed,
     dir = player - shape.getPosition();
 }
 
+/**
+ * Updates bullet position and checks for collision with projectile
+*/
 bool Bullet::update(sf::Time delta, World &world)
 {
     shape.move(dir * delta.asSeconds() * speed);
@@ -139,7 +165,7 @@ bool Bullet::update(sf::Time delta, World &world)
         return false;
     }
 
-    if (shape.getPosition().y < 0){
+    if (shape.getPosition().y < 0) {
         return false;
     }
     
@@ -160,7 +186,11 @@ bool Bullet::update(sf::Time delta, World &world)
     
 }
 
-void Enemy::out_of_bounds(){
+/**
+ * Check if enemy is out of bounds and places on the opposit side if true
+*/
+void Enemy::out_of_bounds()
+{
     if (shape.getPosition().x < 0) {
         shape.setPosition(width, shape.getPosition().y);
     }

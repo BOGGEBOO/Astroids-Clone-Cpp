@@ -1,10 +1,23 @@
 #include "state.h"
 
+/**
+ * Default constructor for State
+*/
 State::State() {}
+
+/**
+ * Default destructor for State
+*/
 State::~State() {}
 
+/**
+ * Function to be overwritten by menu_state
+*/
 void State::on_key_press(sf::Keyboard::Key) {}
 
+/**
+ * Function for keeping the game running. Closes gmae if requested
+*/
 void State::run(sf::RenderWindow &window, std::shared_ptr<State> state) 
 {
     sf::Clock clock;

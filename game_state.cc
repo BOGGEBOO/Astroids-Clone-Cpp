@@ -5,11 +5,17 @@
 
 #include <experimental/random>
 
+/**
+ * Class for logic when game is running
+*/
 Game_State::Game_State(){
     world.add(std::make_shared<Player>(sf::Vector2f{player_x, player_y}));
     levels = {200, 400, 600, 1000, 1500};
 }
 
+/**
+ * The main loop for running the game
+*/
 std::shared_ptr<State> Game_State::update(sf::Time delta) {
 
     //spawn emenys depending on score
@@ -31,11 +37,17 @@ std::shared_ptr<State> Game_State::update(sf::Time delta) {
     return nullptr;
 }
 
+/**
+ * Render all gameobjects
+*/
 void Game_State::render(sf::RenderWindow &to )
 {
     world.render(to);
 }
 
+/**
+ * Changes the amount of enemies depending on score
+*/
 void Game_State::level_select()
 {
     // random x- and y-coordinates

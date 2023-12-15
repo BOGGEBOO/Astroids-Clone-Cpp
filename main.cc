@@ -7,7 +7,7 @@ const size_t height{1080};
 
 int main()
 {
-    sf::RenderWindow window{sf:: VideoMode( width, height), "Asteroid"};
+    sf::RenderWindow window{sf:: VideoMode( width, height), "Space surviver"};
 
     State::run(window, std::make_shared<Menu_State>(nullptr));
 

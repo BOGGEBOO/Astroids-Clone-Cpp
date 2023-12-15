@@ -2,6 +2,9 @@
 #include "world.h"
 #include "enemy.h"
 
+/**
+ * Class for the gameobject representing the projectile
+*/
 Projectile::Projectile(const sf::Vector2f &pos, const float r)
 : Game_Object("images/projectile1.png"), speed(5.0f), rot{r}
 {
@@ -9,6 +12,9 @@ Projectile::Projectile(const sf::Vector2f &pos, const float r)
     shape.setRotation(rot);
 }
 
+/**
+ * Updates projectile position
+*/
 bool Projectile::update(sf::Time delta, World &world)
 {
     dir.x = 250.0*-sin(shape.getRotation()*3.14159265/180)*delta.asSeconds() * speed;
